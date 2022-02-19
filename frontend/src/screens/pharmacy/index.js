@@ -99,7 +99,6 @@ checklistHeaderText: {
 },
 box: {
   backgroundColor: '#C4C4C4',
-  length: 9,
   marginRight: 8,
   marginBottom: 15,
   height: 40,

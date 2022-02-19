@@ -14,7 +14,6 @@ export default function JudicaryStack() {
           <Stack.Screen name="Upload" component={uploadDoc} options={{
             headerShown: false,
           }} />
-         
         </Stack.Navigator>
   );
 }

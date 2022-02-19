@@ -14,7 +14,7 @@ class ExampleService {
   }
 
   update(id, data) {
-    return http.put(`/examples/${id}/`, data)
+    return http.put(`/examples/${id}`, data)
   }
 
   delete(id) {
