@@ -71,8 +71,8 @@ container2: {
 linearGradient: {
   alignItems: 'center',
   borderRadius: 5,
-  height: Dimensions.get('window').height * 1,
-  width: Dimensions.get('window').width * 1,
+  height: Dimensions.get('window').height,
+  width: Dimensions.get('window').width,
 },
 header: {
   top: -60,
@@ -96,13 +96,5 @@ checklistHeaderText: {
   fontWeight: 'bold',
   textAlign: 'center',
   paddingTop: 25,
-},
-box: {
-  backgroundColor: '#C4C4C4',
-  length: 9,
-  marginRight: 8,
-  marginBottom: 15,
-  height: 40,
-  alignSelf: 'center',
 },
 });

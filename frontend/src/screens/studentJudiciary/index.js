@@ -97,12 +97,4 @@ checklistHeaderText: {
   textAlign: 'center',
   paddingTop: 25,
 },
-box: {
-  backgroundColor: '#C4C4C4',
-  length: 9,
-  marginRight: 8,
-  marginBottom: 15,
-  height: 40,
-  alignSelf: 'center',
-},
 });
