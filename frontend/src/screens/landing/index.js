@@ -17,6 +17,10 @@ export default function App( { navigation }) {
         title="student judiciary"
         onPress={() => navigation.navigate('studentJudiciary')}
       />
+      <Button
+        title="example"
+        onPress={() => navigation.navigate('example')}
+      />
     </View>
   );
 }
