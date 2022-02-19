@@ -17,18 +17,10 @@ export default function App() {
   return (
     <NavigationContainer>
     <Stack.Navigator initialRouteName='Main' screenOptions={{animation: 'fade'}} >
-      <Stack.Screen name="Main" component={landing} options={{
-        headerShown: false,
-      }} />
-      <Stack.Screen name="banking" component={BankingStack}  options={{
-        headerShown: false,
-      }} />
-      <Stack.Screen name="pharmacy" component={PharmacyStack}  options={{
-        headerShown: false,
-      }} />
-        <Stack.Screen name="studentJudiciary" component={JudicaryStack}  options={{
-        headerShown: false,
-      }} />
+      <Stack.Screen name="Main" component={landing}  />
+      <Stack.Screen name="banking" component={BankingStack}  />
+      <Stack.Screen name="pharmacy" component={PharmacyStack}  />
+        <Stack.Screen name="studentJudiciary" component={JudicaryStack}   />
     </Stack.Navigator>
     </NavigationContainer>
   );
