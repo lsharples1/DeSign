@@ -44,10 +44,7 @@ export default function App( { navigation }) {
             dropdownStyle={styles.dropdownStyle}
             rowStyle={styles.dropdownRowStyle}
             rowTextStyle={styles.dropdownRowTxtStyle}
-          />
-          <Text> {platformValue}</Text>
-    
-      
+          />    
       <Button
         title="Log In"
         onPress={() => navigation.navigate(platformValue)}
@@ -74,10 +71,6 @@ function SignInScreen() {
         value={password}
         onChangeText={setPassword}
         secureTextEntry
-      />
-      <Button
-        title="example"
-        onPress={() => navigation.navigate('example')}
       />
     </View>
     

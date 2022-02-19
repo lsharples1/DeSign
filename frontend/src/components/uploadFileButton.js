@@ -32,7 +32,9 @@ class UploadFileButton extends Component {
   render() {
     return(
       <>
-        <form onSubmit={this.handleSubmit} id="upload-file">
+        <form onSubmit={this.handleSubmit}
+         id="upload-file"
+         >
           <input
             type="file"
             accept="application/pdf"
