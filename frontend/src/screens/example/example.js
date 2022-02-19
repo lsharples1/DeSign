@@ -7,7 +7,6 @@ import ExampleService from '../../services/example.service';
 const Stack = createNativeStackNavigator();
 
 class Example extends Component {
-  // const [loading, setLoading] = useState(true);
   constructor(props) {
     super(props);
 
@@ -27,8 +26,6 @@ class Example extends Component {
     this.setState({
       'examples': examples,
     })
-
-    console.log(this.state);
   }
 
   render() {

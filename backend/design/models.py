@@ -7,3 +7,10 @@ class Example(models.Model):
 
   def _str_(self):
     return self.title
+
+class File(models.Model):
+  id = models.BigAutoField(primary_key=True)
+  filepath = models.FileField(upload_to='files', blank=True)
+
+  def __str__(self):
+      return str(self.filepath)
