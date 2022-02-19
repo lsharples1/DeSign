@@ -1,13 +1,16 @@
 
 from django.http.response import Http404
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.views import APIView
 from rest_framework.decorators import action, api_view, renderer_classes
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
-from .serializers import ExampleSerializer
-from .models import Example
+from .serializers import ExampleSerializer, FileSerializer
+from .models import Example, File
 
+class FileView(viewsets.ModelViewSet):
+  queryset = File.objects.all()
+  serializer_class = FileSerializer
 
 class ExamplesView(APIView):
   """
