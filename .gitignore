@@ -11,6 +11,8 @@
 /frontend/node_modules
 /node_modules
 
+.expo
+
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json
