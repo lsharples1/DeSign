@@ -10,6 +10,7 @@ import PharmacyStack from './src/navigation/PharmacyStack';
 import LandingScreenNav from './src/navigation/LandingScreenNav';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from "@react-navigation/native";
+import ExampleStack from './src/navigation/ExampleStack';
 
 
 export default function App() {
@@ -17,10 +18,11 @@ export default function App() {
   return (
     <NavigationContainer>
     <Stack.Navigator initialRouteName='Main' screenOptions={{animation: 'fade'}} >
-      <Stack.Screen name="Main" component={landing}  />
-      <Stack.Screen name="banking" component={BankingStack}  />
-      <Stack.Screen name="pharmacy" component={PharmacyStack}  />
-        <Stack.Screen name="studentJudiciary" component={JudicaryStack}   />
+      <Stack.Screen name="Main" component={landing} />
+      <Stack.Screen name="banking" component={BankingStack} />
+      <Stack.Screen name="pharmacy" component={PharmacyStack} />
+      <Stack.Screen name="studentJudiciary" component={JudicaryStack} />
+      <Stack.Screen name="example" component={ExampleStack} />
     </Stack.Navigator>
     </NavigationContainer>
   );

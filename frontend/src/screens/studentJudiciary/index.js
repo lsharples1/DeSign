@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Dimensions, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import UploadFileButton from '../../components/UploadFileButton';
 
 export default function App( { navigation } ) {
   return (
@@ -23,9 +24,7 @@ export default function App( { navigation } ) {
           <View style={styles.checklistContainer}>
             <Text style={[{ fontWeight: 'bold' }, {flex:2}, {marginLeft: 20}, {marginTop: 20}]}>Notice of Hearing</Text>
             <Text style={[{ color: 'red' }, { flex: 2 }, {marginTop: 20}]}>NOT SUBMITTED</Text>
-            <Button
-        title="Submit Here"
-      />
+            <UploadFileButton />
           </View>
           
           <View style={styles.checklistContainer}>

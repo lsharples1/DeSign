@@ -75,6 +75,10 @@ function SignInScreen() {
         onChangeText={setPassword}
         secureTextEntry
       />
+      <Button
+        title="example"
+        onPress={() => navigation.navigate('example')}
+      />
     </View>
     
   );
