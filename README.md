@@ -1,6 +1,7 @@
   # DeSign  
   ### **Welcome to DeSign**  
-  Created by: Ruben Cristea, Lilly Sharples, Idan Tzurdecker and Barret Batten: University of Georgia
+  Created by: Ruben Cristea, Lilly Sharples, Idan Tzurdecker and Barret Batten:  
+  University of Georgia  
   Built with: Django, React Native, Web3.py, Ethereum, Ganache  
     
   #### **What it does**   
