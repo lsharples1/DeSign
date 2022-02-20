@@ -69,7 +69,7 @@ class ExecuteSmartContractButton extends Component {
            <View style={[{marginBottom: 10}, {marginTop: 10}]}>
            <label>recipient public key</label>
            <input name="public_key" onChange={this.handleChange}></input>
-          <input type="submit" title="Execute" value="Sign Transaction"/>
+          <input type="submit" value="Sign Transaction"/>
            </View>
           
         </form>
@@ -79,7 +79,7 @@ class ExecuteSmartContractButton extends Component {
         <View style={[{marginBottom: 10}, {marginTop: 10}]}>
            <label>signed tx</label>
            <input name="signed_tx" onChange={this.handleChange} value={this.state.signed_tx }></input>
-          <input type="submit" title="Execute" value="Send Transaction"/>
+          <input type="submit" value="Send Transaction"/>
           </View>
         </form>
         <Text style={[{fontFamily: 'Avenir'}]} numberOfLines={5}>Tx Hash: {this.state.tx_hash ? this.state.tx_hash : ''}</Text>
