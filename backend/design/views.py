@@ -1,4 +1,3 @@
-
 from urllib.request import Request
 from django.http.response import Http404
 from rest_framework import status, viewsets
@@ -22,26 +21,21 @@ class SmartContractView(APIView):
 
   Idan Tzurdecker wrote this script
   """
-
+ 
   @action(detail=True)
-<<<<<<< HEAD
-  @api_view(['POST'])
-  def getSignedTX(request, *args, **kwargs):
-=======
   @api_view(['GET'])
-  def getSignedTX(self, request, format=None):
->>>>>>> 4d996426278142e47a57b1e1a28f9348ae0d62e0
+  def getSignedTX(request, *args, **kwargs):
     ganache_url = "HTTP://127.0.0.1:7545"
     web3 = Web3(Web3.HTTPProvider(ganache_url))
 
-    account_1 = "0x412e833aC97eC0e05C21f3191808733c0BBdc563"
+    account_1 = "0xE9dc981B60daADe58F50C213E1275b6714De3e81"
     # account_2 = "0x1f07d507732716314ED2CFCD67c9D0F880C6fA9a"
     # data: public of recipient, private of sender
     account_2 = request.GET.get('public_key')
 
     # private_key = "f819edb5a54d53ab46d28fd71446cc7365d2be47688ea0e708d9aa6c40515c26"
     private_key = request.GET.get('private_key')
-    print(private_key)
+   
 
     nonce = web3.eth.getTransactionCount(account_1)
 
@@ -54,18 +48,26 @@ class SmartContractView(APIView):
     }
 
     signed_tx = web3.eth.account.signTransaction(tx,private_key)
-    return Response(signed_tx)
+    #signed_tx = web3.toHex(signed_tx.rawTransaction)
+
+    #print(signed_tx.rawTransaction)
+    isTxHash = request.GET.get('isTxHash')
+    print(isTxHash)
+    if isTxHash == 'true':
+      print(1)
+      tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
+      return Response(str(web3.toHex(tx_hash)))
+    else:
+      print(2)
+      return Response(str(web3.toHex(signed_tx.rawTransaction)))
+
 
   @action(detail=True)
-<<<<<<< HEAD
-  @api_view(['POST'])
-  def getTXHash(request, *args, **kwargs):
-=======
   @api_view(['GET'])
-  def getTXHash(self, request, format=None):
->>>>>>> 4d996426278142e47a57b1e1a28f9348ae0d62e0
+  def getTXHash(request, *args, **kwargs):
+    
     signed_tx = request.GET.get('signed_tx')
-    tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
+    tx_hash = web3.eth.sendRawTransaction(signed_tx)
     return Response(tx_hash)
     
 

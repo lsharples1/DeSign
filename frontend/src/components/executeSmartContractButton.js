@@ -10,10 +10,12 @@ class ExecuteSmartContractButton extends Component {
     this.state = {
       'private_key': null,
       'public_key': null,
-      'signed_tx': null,
+      'signed_tx': '',
+      'tx_hash': null,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitTxHash = this.handleSubmitTxHash.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -27,11 +29,7 @@ class ExecuteSmartContractButton extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.state)
-    let data = {
-      'private_key': this.state.private_key,
-      'public_key': this.state.public_key,
-    }
-    const signedTX = await SmartcontractService.getSignedTX(data).then(response => {
+    const signedTX = await SmartcontractService.getSignedTX(this.state.public_key, this.state.private_key, false).then(response => {
       console.log(response.data);
       return response.data;
     }).catch(error => {
@@ -40,6 +38,21 @@ class ExecuteSmartContractButton extends Component {
 
     this.setState({
       'signed_tx': signedTX,
+    })
+  }
+
+  handleSubmitTxHash = async (e) => {
+    e.preventDefault();
+    console.log(this.state)
+    const txHash = await SmartcontractService.getSignedTX(this.state.public_key, this.state.private_key, true).then(response => {
+      console.log(response.data);
+      return response.data;
+    }).catch(error => {
+      console.error(error);
+    })
+
+    this.setState({
+      'tx_hash': txHash,
     })
   }
 
@@ -55,8 +68,13 @@ class ExecuteSmartContractButton extends Component {
            <input name="public_key" onChange={this.handleChange}></input>
           <input type="submit" title="Execute"/>
         </form>
-        <returnValue/>
-        <Text>Signed TX: {this.state.signed_tx ? this.state.signed_tx : ''}</Text>
+
+        <form onSubmit={this.handleSubmitTxHash}>
+           <label>signed tx</label>
+           <input name="signed_tx" onChange={this.handleChange} value={this.state.signed_tx }></input>
+          <input type="submit" title="Execute"/>
+        </form>
+        <Text numberOfLines={5}>Tx Hash: {this.state.tx_hash ? this.state.tx_hash : ''}</Text>
       </>
     )
   }

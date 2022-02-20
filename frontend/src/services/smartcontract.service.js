@@ -1,8 +1,8 @@
 import http from '../http-common'
 
 class SmartContractService {
-  getSignedTX(public_key, private_key) {
-    return http.get(`/getSignedTX?private_key=${private_key}}&public_key=${public_key}`, data);
+  getSignedTX(public_key, private_key, isTxHash) {
+    return http.get(`/getSignedTX?private_key=${private_key}&public_key=${public_key}&isTxHash=${isTxHash}`);
   }
   
   getTXHash(signed_tx) {
