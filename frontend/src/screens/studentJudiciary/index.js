@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Dimensions, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import UploadFileButton from '../../components/UploadFileButton';
+import ExecuteSmartContractButton from '../../components/executeSmartContractButton';
 
 export default function App( { navigation } ) {
   return (
@@ -18,9 +19,7 @@ export default function App( { navigation } ) {
         </Text>
           </View>
         <View style={styles.container2}>
-          <View style={styles.checklistContainer}>
-            <Text style={[styles.checklistHeaderText]}>Checklist</Text>
-          </View>
+            <Text style={[styles.checklistHeaderText, {fontSize:22}]}>Checklist</Text>
           <View style={styles.checklistContainer}>
             <Text style={[{ fontWeight: 'bold' }, {flex:2}, {marginLeft: 20}, {marginTop: 20}]}>Notice of Hearing</Text>
             <Text style={[{ color: 'red' }, { flex: 2 }, {marginTop: 20}]}>NOT SUBMITTED</Text>
@@ -52,9 +51,12 @@ export default function App( { navigation } ) {
       />
           </View>
         </View>
+        <ExecuteSmartContractButton/> 
       </LinearGradient>
   );
 }
+
+
 const styles = StyleSheet.create({
 container: {
   flex: 1,

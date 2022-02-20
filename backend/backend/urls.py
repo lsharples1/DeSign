@@ -24,6 +24,7 @@ router = routers.DefaultRouter()
 
 router.register(r'files', views.FileView, basename='files')
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
