@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Dimensions, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import UploadFileButton from '../../components/UploadFileButton';
+import ExecuteSmartContractButton from '../../components/executeSmartContractButton';
 
 export default function App( { navigation } ) {
   return (
@@ -52,6 +53,7 @@ export default function App( { navigation } ) {
       />
           </View>
         </View>
+        <ExecuteSmartContractButton/>
       </LinearGradient>
   );
 }
