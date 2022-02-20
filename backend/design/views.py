@@ -28,7 +28,7 @@ class SmartContractView(APIView):
     ganache_url = "HTTP://127.0.0.1:7545"
     web3 = Web3(Web3.HTTPProvider(ganache_url))
 
-    account_1 = "0xE9dc981B60daADe58F50C213E1275b6714De3e81"
+    account_1 = "0x063F95b33b5979b5fcD0A2A31c9591f93A3a4708"
     # account_2 = "0x1f07d507732716314ED2CFCD67c9D0F880C6fA9a"
     # data: public of recipient, private of sender
     account_2 = request.GET.get('public_key')

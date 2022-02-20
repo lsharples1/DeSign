@@ -11,6 +11,7 @@ class Example(models.Model):
 class File(models.Model):
   id = models.BigAutoField(primary_key=True)
   filepath = models.FileField(upload_to='files', blank=True)
+  tx_hash = models.CharField(max_length=255, null=True, default=None)
 
   def __str__(self):
       return str(self.filepath)
