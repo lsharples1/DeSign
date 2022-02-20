@@ -1,6 +1,6 @@
   # DeSign  
   ### **Welcome to DeSign**  
-  Created by students of the University of Georgia: Ruben Cristea, Lilly Sharples, Idan Tzurdecker and Barret Batten.
+  Created by students of the University of Georgia: Ruben Cristea, Lilly Sharples, Idan Tzurdecker and Barret Batten.  
   Representing the Terry Fintech Society.  
   Built with: Django, React Native, Web3.py, Ethereum, Ganache  
     
