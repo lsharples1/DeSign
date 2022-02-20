@@ -66,13 +66,13 @@ class ExecuteSmartContractButton extends Component {
            <input name="private_key" onChange={this.handleChange}></input>
            <label>recipient public key</label>
            <input name="public_key" onChange={this.handleChange}></input>
-          <input type="submit" title="Execute"/>
+          <input type="submit" title="Execute" value="Sign Transaction"/>
         </form>
 
         <form onSubmit={this.handleSubmitTxHash}>
            <label>signed tx</label>
            <input name="signed_tx" onChange={this.handleChange} value={this.state.signed_tx }></input>
-          <input type="submit" title="Execute"/>
+          <input type="submit" title="Execute" value="Send Transaction"/>
         </form>
         <Text numberOfLines={5}>Tx Hash: {this.state.tx_hash ? this.state.tx_hash : ''}</Text>
       </>

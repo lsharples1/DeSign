@@ -21,26 +21,22 @@ export default function App( { navigation } ) {
             <Text style={[styles.checklistHeaderText, {fontSize:22}]}>Checklist</Text>
           <View style={styles.checklistContainer}>
             <Text style={[{ fontWeight: 'bold' }, {flex:2}, {marginLeft: 20}, {marginTop: 20}]}>Notice of Hearing</Text>
-            <Text style={[{ color: 'red' }, { flex: 2 }, {marginTop: 20}]}>SUBMITTED</Text>
             <UploadFileButton />
           </View>
           
           <View style={styles.checklistContainer}>
             <Text style={[{ fontWeight: 'bold' }, {flex:2},  {marginLeft: 20},  {marginTop: 20}]}>Final Investigation Report</Text>
-            <Text style={[{ color: 'red' }, { flex: 2 },  {marginTop: 20}]}>SUBMITTED</Text>
             <UploadFileButton />
           </View>
 
         
         <View style={styles.checklistContainer}>
             <Text style={[{ fontWeight: 'bold' }, {flex:2},  {marginLeft: 20},  {marginTop: 20}]}>Notice of Decision</Text>
-            <Text style={[{ color: 'red' }, { flex: 2 },  {marginTop: 20}]}>SUBMITTED</Text>
             <UploadFileButton />
           </View>
 
           <View style={styles.checklistContainer}>
             <Text style={[{ fontWeight: 'bold' }, {flex:2},  {marginLeft: 20},  {marginTop: 20}]}>Hearing</Text>
-            <Text style={[{ color: 'red' }, { flex: 2 },  {marginTop: 20}]}>SUBMITTED</Text>
             <UploadFileButton />
           </View>
         </View>

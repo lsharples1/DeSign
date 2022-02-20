@@ -63,13 +63,13 @@ function SignInScreen() {
     <View>
       <TextInput
       style={styles.input}
-        placeholder="   Public Key"
+        placeholder="   Username"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
       style={styles.input}
-        placeholder="   Private Key"
+        placeholder="   Password"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
