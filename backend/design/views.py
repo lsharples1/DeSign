@@ -24,7 +24,7 @@ class SmartContractView(APIView):
   """
 
   @action(detail=True)
-  @api_view(['POST'])
+  @api_view(['GET'])
   def getSignedTX(self, request, format=None):
     ganache_url = "HTTP://127.0.0.1:7545"
     web3 = Web3(Web3.HTTPProvider(ganache_url))
@@ -51,7 +51,7 @@ class SmartContractView(APIView):
     return Response(signed_tx)
 
   @action(detail=True)
-  @api_view(['POST'])
+  @api_view(['GET'])
   def getTXHash(self, request, format=None):
     signed_tx = request.GET.get('signed_tx')
     tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
