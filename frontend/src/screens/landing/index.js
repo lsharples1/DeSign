@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable, Button, Alert, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Button, Alert, TextInput, Dimensions, Image } from 'react-native';
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import SelectDropdown from 'react-native-select-dropdown';
@@ -16,7 +16,9 @@ export default function App( { navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>landing page</Text>
+      <Text>DeSign</Text>
+      <Text style={[{flex:.3}]}>Bringing your business together as simple as a handshake.</Text>
+      <Image style={styles.image} source={require('../../assets/DeSign.png')} />
       <SignInScreen/>
 
       <SelectDropdown
@@ -84,8 +86,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image :{
+    height: 250,
+    width: 400,
+    marginTop: 50,
+    marginBottom: 50,
+  },
   dropdownBtnStyle: {
-    width: "80%",
+    width: "40%",
     height: 50,
     backgroundColor: "#FFF",
     borderRadius: 8,
@@ -100,11 +108,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#EFEFEF",
     borderBottomColor: "#C5C5C5",
   },
-  dropdownRowTxtStyle: { color: "#444", textAlign: "left" },
+  dropdownRowTxtStyle: { 
+    color: "#444", textAlign: "left" 
+  },
    input: {
       margin: 15,
       height: 40,
       borderColor: 'black',
-      borderWidth: 1
+      borderWidth: 1,
+      width: Dimensions.get('window').width  * .4,
    },
 });

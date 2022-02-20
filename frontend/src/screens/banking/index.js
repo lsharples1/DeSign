@@ -6,14 +6,14 @@ export default function App( { navigation } ) {
   return (
    
       <LinearGradient
-        colors={['red', 'white']}
+        colors={['#4FC905', 'white']}
         style={styles.linearGradient}
         start={{ x: 0, y: 0.5 }}
         end={{ x: 0, y: 0 }}>
           <View>
           <Text style={[styles.headerText ]}>
           {' '}
-          Banking Dashboard
+          NCR Banking Dashboard
         </Text>
           </View>
         <View style={styles.container2}>
