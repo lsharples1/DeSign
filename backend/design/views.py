@@ -25,17 +25,18 @@ class SmartContractView(APIView):
 
   @action(detail=True)
   @api_view(['POST'])
-  def getSignedTX(self, request, format=None):
+  def getSignedTX(request, *args, **kwargs):
     ganache_url = "HTTP://127.0.0.1:7545"
     web3 = Web3(Web3.HTTPProvider(ganache_url))
 
     account_1 = "0x412e833aC97eC0e05C21f3191808733c0BBdc563"
     # account_2 = "0x1f07d507732716314ED2CFCD67c9D0F880C6fA9a"
     # data: public of recipient, private of sender
-    account_2 = request.GET.get('sender')
+    account_2 = request.GET.get('public_key')
 
     # private_key = "f819edb5a54d53ab46d28fd71446cc7365d2be47688ea0e708d9aa6c40515c26"
-    private_key = request.GET.get('recipient')
+    private_key = request.GET.get('private_key')
+    print(private_key)
 
     nonce = web3.eth.getTransactionCount(account_1)
 
@@ -52,7 +53,7 @@ class SmartContractView(APIView):
 
   @action(detail=True)
   @api_view(['POST'])
-  def getTXHash(self, request, format=None):
+  def getTXHash(request, *args, **kwargs):
     signed_tx = request.GET.get('signed_tx')
     tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
     return Response(tx_hash)
