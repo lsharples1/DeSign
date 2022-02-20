@@ -8,7 +8,9 @@ class ExecuteSmartContractButton extends Component {
     super(props);
 
     this.state = {
-      'file': null,
+      'private_key': null,
+      'public_key': null,
+      'signed_tx': null,
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,15 +20,23 @@ class ExecuteSmartContractButton extends Component {
   handleChange(event) {
     const {name, value} = event.target;
     this.setState({
-      'file': value
+      [name]: value
     })
   }
 
   handleSubmit = async (e) => {
     e.preventDefault();
     let form = document.getElementById('execute-contract');
-    let formData = new FormData(form);
-    const returnValue = SmartcontractService.get();
+    const signedTX = await SmartcontractService.getSignedTX(this.state).then(response => {
+      console.log(response.data);
+      return response.data;
+    }).catch(error => {
+      console.error(error);
+    })
+
+    this.setState({
+      'signed_tx': signedTX,
+    })
   }
 
   render() {
@@ -35,10 +45,11 @@ class ExecuteSmartContractButton extends Component {
         <form onSubmit={this.handleSubmit}
          id="execute-contract"
          >
-        
+           <input name="public_key" onChange={this.handleChange}></input>
           <input type="submit" title="Execute"/>
         </form>
         <returnValue/>
+        <Text>Signed TX: {this.state.signed_tx ? this.state.signed_tx : ''}</Text>
       </>
     )
   }
