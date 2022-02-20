@@ -62,19 +62,29 @@ class ExecuteSmartContractButton extends Component {
         <form onSubmit={this.handleSubmit}
          id="execute-contract"
          >
+           <View style={[{marginBottom: 10}, {marginTop: 10}]}>
            <label>sender private key</label>
            <input name="private_key" onChange={this.handleChange}></input>
+           </View>
+           <View style={[{marginBottom: 10}, {marginTop: 10}]}>
            <label>recipient public key</label>
            <input name="public_key" onChange={this.handleChange}></input>
           <input type="submit" title="Execute" value="Sign Transaction"/>
+           </View>
+          
         </form>
 
+       
         <form onSubmit={this.handleSubmitTxHash}>
+        <View style={[{marginBottom: 10}, {marginTop: 10}]}>
            <label>signed tx</label>
            <input name="signed_tx" onChange={this.handleChange} value={this.state.signed_tx }></input>
           <input type="submit" title="Execute" value="Send Transaction"/>
+          </View>
         </form>
-        <Text numberOfLines={5}>Tx Hash: {this.state.tx_hash ? this.state.tx_hash : ''}</Text>
+        <Text style={[{fontFamily: 'Avenir'}]} numberOfLines={5}>Tx Hash: {this.state.tx_hash ? this.state.tx_hash : ''}</Text>
+        
+        
       </>
     )
   }

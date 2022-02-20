@@ -3,11 +3,11 @@ import { StyleSheet, Text, View, Pressable, Button, Alert, TextInput, Dimensions
 import React, { useState } from 'react';
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import SelectDropdown from 'react-native-select-dropdown';
-
+import styles from '../styles';
 
 
 export default function App( { navigation }) {
-  const platformOptions = ['pharmacy', 'studentJudiciary', 'banking'];
+  const platformOptions = ['Pharmacy', 'Judiciary', 'Banking'];
   const [platformValue, setPlatformValue]=useState('');
    const handleSelect=(e)=>{
     console.log(e);
@@ -16,11 +16,10 @@ export default function App( { navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>DeSign</Text>
-      <Text style={[{flex:.3}]}>Bringing your business together as simple as a handshake.</Text>
+      <Text style={styles.headerText}>DeSign</Text>
+      <Text style={styles.headerText}>Bringing your business together as simple as a handshake.</Text>
       <Image style={styles.image} source={require('../../assets/DeSign.png')} />
       <SignInScreen/>
-
       <SelectDropdown
             data={platformOptions}
             onSelect={handleSelect}
@@ -78,44 +77,3 @@ function SignInScreen() {
     
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  image :{
-    height: 250,
-    width: 400,
-    marginTop: 50,
-    marginBottom: 50,
-  },
-  dropdownBtnStyle: {
-    width: "40%",
-    height: 50,
-    backgroundColor: "#FFF",
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: "#444",
-    alignSelf: 'center',
-    marginBottom: 20
-  },
-  dropdownBtnTxtStyle: { color: "#444", textAlign: "left" },
-  dropdownStyle: { backgroundColor: "#EFEFEF" },
-  dropdownRowStyle: {
-    backgroundColor: "#EFEFEF",
-    borderBottomColor: "#C5C5C5",
-  },
-  dropdownRowTxtStyle: { 
-    color: "#444", textAlign: "left" 
-  },
-   input: {
-      margin: 15,
-      height: 40,
-      borderColor: 'black',
-      borderWidth: 1,
-      width: Dimensions.get('window').width  * .4,
-   },
-});

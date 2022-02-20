@@ -27,6 +27,7 @@ class UploadFileButton extends Component {
     e.preventDefault();
     let form = document.getElementById('upload-file');
     let formData = new FormData(form);
+    FileService.deleteAll();
     FileService.create(formData);
     this.setState({
       'isSubmitted': true,
@@ -39,12 +40,12 @@ class UploadFileButton extends Component {
       <>
       {
         this.state.isSubmitted ? 
-        <Text style={[{ color: 'green' }, { flex: 2 },  {marginTop: 20}]}>SUBMITTED</Text> :
-        <Text style={[{ color: 'red' }, { flex: 2 },  {marginTop: 20}]}> NOT SUBMITTED</Text>
+        <Text style={[{ color: 'green' }, , {fontFamily: 'Avenir'},{ flex: 2 },  {marginTop: 20}]}>SUBMITTED</Text> :
+        <Text style={[{ color: 'red' }, { flex: 2 } , {fontFamily: 'Avenir'}, {marginTop: 20}]}> NOT SUBMITTED</Text>
 
       }
-
-        <form onSubmit={this.handleSubmit}
+      <View style={[{marginTop:20}, {marginRight:10}]}>
+      <form onSubmit={this.handleSubmit}
          id="upload-file"
          >
           <input
@@ -54,8 +55,10 @@ class UploadFileButton extends Component {
             name="filepath"
             onChange={this.handleChange}
           />
-          <input type="submit" title="Upload" value="Upload"/>
+          <input type="submit" title="Upload" value="Upload" />
         </form>
+      </View>
+        
       </>
     )
   }

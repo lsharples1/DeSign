@@ -1,9 +1,9 @@
 import React from 'react';
 
-import landing from '../screens/landing'
-import banking from '../screens/banking';
-import pharmacy from '../screens/pharmacy';
-import studentJudiciary from '../screens/studentJudiciary';
+import Landing from '../screens/landing'
+import Banking from '../screens/banking';
+import Pharmacy from '../screens/pharmacy';
+import Judiciary from '../screens/studentJudiciary';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -14,16 +14,16 @@ export default function ExplorePageStack() {
   return (
     <NavigationContainer>
         <Stack.Navigator initialRouteName='Main' screenOptions={{animation: 'fade'}} >
-          <Stack.Screen name="Main" component={landing} options={{
+          <Stack.Screen name="Main" component={Landing} options={{
             headerShown: false,
           }} />
-          <Stack.Screen name="banking" component={banking}  options={{
+          <Stack.Screen name="Banking" component={Banking}  options={{
             headerShown: false,
           }} />
-          <Stack.Screen name="pharmacy" component={pharmacy}  options={{
+          <Stack.Screen name="Pharmacy" component={Pharmacy}  options={{
             headerShown: false,
           }} />
-            <Stack.Screen name="studentJudiciary" component={studentJudiciary}  options={{
+            <Stack.Screen name="Judiciary" component={Judiciary}  options={{
             headerShown: false,
           }} />
         </Stack.Navigator>

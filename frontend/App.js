@@ -19,9 +19,9 @@ export default function App() {
     <NavigationContainer>
     <Stack.Navigator initialRouteName='Main' screenOptions={{animation: 'fade'}} >
       <Stack.Screen name="Main" component={landing} />
-      <Stack.Screen name="banking" component={BankingStack} />
-      <Stack.Screen name="pharmacy" component={PharmacyStack} />
-      <Stack.Screen name="studentJudiciary" component={JudicaryStack} />
+      <Stack.Screen name="Banking" component={BankingStack} />
+      <Stack.Screen name="Pharmacy" component={PharmacyStack} />
+      <Stack.Screen name="Judiciary" component={JudicaryStack} />
       <Stack.Screen name="example" component={ExampleStack} />
     </Stack.Navigator>
     </NavigationContainer>
