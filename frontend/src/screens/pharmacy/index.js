@@ -13,7 +13,7 @@ export default function App( { navigation } ) {
           <View>
           <Text style={[styles.headerText ]}>
           {' '}
-          Pharmacy Dashboard
+          UGA Pharmacy Dashboard
         </Text>
           </View>
         <View style={styles.container2}>

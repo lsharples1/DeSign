@@ -1,4 +1,5 @@
 
+from urllib.request import Request
 from django.http.response import Http404
 from rest_framework import status, viewsets
 from rest_framework.views import APIView
@@ -7,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 from .serializers import ExampleSerializer, FileSerializer
 from .models import Example, File
+import web3
 from web3 import Web3
 
 
@@ -14,21 +16,26 @@ class FileView(viewsets.ModelViewSet):
   queryset = File.objects.all()
   serializer_class = FileSerializer
 
-class SmartContractView(viewsets.ModelViewSet):
+class SmartContractView(APIView):
   """
   Send a get request to this model to run the script
 
   Idan Tzurdecker wrote this script
   """
 
-  def get(self, request, format=None):
+  @action(detail=True)
+  @api_view(['POST'])
+  def getSignedTX(self, request, format=None):
     ganache_url = "HTTP://127.0.0.1:7545"
     web3 = Web3(Web3.HTTPProvider(ganache_url))
 
-    account_1 = "0xB423fd3Db154423E5B5f16e56E17e5d9FCBc69FB"
-    account_2 = "0xCfA27430eC320EbEa18F34c2596e1c5aA4A0F803"
+    account_1 = "0x412e833aC97eC0e05C21f3191808733c0BBdc563"
+    # account_2 = "0x1f07d507732716314ED2CFCD67c9D0F880C6fA9a"
+    # data: public of recipient, private of sender
+    account_2 = request.GET.get('sender')
 
-    private_key = "8df46d853c4492034d0c2b1bcf0646c4492797031913497c8cc7230124cca716"
+    # private_key = "f819edb5a54d53ab46d28fd71446cc7365d2be47688ea0e708d9aa6c40515c26"
+    private_key = request.GET.get('recipient')
 
     nonce = web3.eth.getTransactionCount(account_1)
 
@@ -41,10 +48,15 @@ class SmartContractView(viewsets.ModelViewSet):
     }
 
     signed_tx = web3.eth.account.signTransaction(tx,private_key)
+    return Response(signed_tx)
 
+  @action(detail=True)
+  @api_view(['POST'])
+  def getTXHash(self, request, format=None):
+    signed_tx = request.GET.get('signed_tx')
     tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
-    return Response(web3.toHex(tx_hash))
-
+    return Response(tx_hash)
+    
 
 class ExamplesView(APIView):
   """
