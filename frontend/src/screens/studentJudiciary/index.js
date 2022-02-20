@@ -1,9 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Dimensions, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+<<<<<<< HEAD
+import UploadFileButton from '../../components/uploadFileButton';
+//import ExecuteSmartContractButton from '../../components/executeSmartContractButton';
+=======
 import UploadFileButton from '../../components/UploadFileButton';
 import ExecuteSmartContractButton from '../../components/executeSmartContractButton';
 
+>>>>>>> 04ff50a181728b1f27b3314318cd9f4ffb183fa0
 export default function App( { navigation } ) {
   return (
    
