@@ -30,5 +30,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('api/examples/', views.ExamplesView.as_view()),
     path('api/example/<int:id>/', views.ExampleView.as_view()),
-    path('api/smartcontract/', views.SmartContractView.as_view()),
+    # path('api/smartcontract/', views.SmartContractView.as_view()),
+    path('api/getSignedTX', views.SmartContractView.getSignedTX),
+    path('api/getTXHash', views.SmartContractView.getTXHash),
 ] + static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

@@ -1,12 +1,12 @@
 import http from '../http-common'
 
 class SmartContractService {
-  async get() {
-    return await http.get(`/smartcontract/`).then(response => {
-      return response.data;
-    }).catch(error => {
-      console.error(error);
-    })
+  getSignedTX(data) {
+    return http.post('/getSignedTX', data);
+  }
+  
+  getTXHash(data) {
+    return http.post('/getTXHash', data);
   }
 }
 
