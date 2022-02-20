@@ -27,7 +27,6 @@ class UploadFileButton extends Component {
     e.preventDefault();
     let form = document.getElementById('upload-file');
     let formData = new FormData(form);
-    FileService.deleteAll();
     FileService.create(formData);
     this.setState({
       'isSubmitted': true,

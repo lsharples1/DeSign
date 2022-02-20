@@ -62,7 +62,7 @@ class ExecuteSmartContractButton extends Component {
         <form onSubmit={this.handleSubmit}
          id="execute-contract"
          >
-           <View style={[{marginBottom: 10}, {marginTop: 10}]}>
+           <View style={[{marginBottom: 10}, {marginTop: 20}]}>
            <label>sender private key</label>
            <input name="private_key" onChange={this.handleChange}></input>
            </View>
