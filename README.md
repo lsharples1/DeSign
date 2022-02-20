@@ -24,7 +24,7 @@ The Code of Conduct process at the University of Georgia is orchestrated by rela
 3) Ensure Python 3.10 is installed
 4) ``cd`` to backend directory
 5) Setup Django backend  
-6) install pip packages
+6) Install pip packages
 7) create MYSQL database "design"
 8) ``run python manage.py migrate``
 9) ``run python manage.py runserver``
